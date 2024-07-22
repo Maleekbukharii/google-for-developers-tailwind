@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="bg-gray-100">
+  <nav class="flex items-center justify-between p-4 shadow-md bg-white py-3" x-data="{ open: false }">
+    <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-1">
+            <img src="images/logo.png" alt="Google Logo" class="w-30 h-6">
+        </div>
+        <div class="space-x-6"></div>
+        <div class="hidden md:flex flex-col md:flex-row md:space-x-10 space-y-2 md:space-y-0">
+            <div class="relative" x-data="{ open: false }">
+                <a href="#" @mouseover="open = true" @mouseleave="open = false" class="text-gray-600 hover:text-gray-900 hover:border-b-2 hover:border-gray-900">
+                    Products
+                </a>
+                <div x-show="open" @mouseover="open = true" @mouseleave="open = false" class="flex justify-start absolute left-0 mt-2 w-screen bg-white shadow-md z-20" x-cloak>
+                    <div class="grid grid-cols-4 gap-4 p-4">
+                        <div class="col-span-1">
+                            <h3 class="font-semibold text-blue-500">Platforms and operating system</h3>
+                            <ul>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Android</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google AI</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Chrome</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google Cloud</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Firebase</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-span-1">
+                            <h3 class="font-semibold text-blue-500">Frameworks, IDEs and SDKs</h3>
+                            <ul>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Jetpack</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Android Studio</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Flutter</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Project IDX</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google AI Studio</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-span-1">
+                            <h3 class="font-semibold text-blue-500">Services and integrations</h3>
+                            <ul>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Gemini AI</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Vertex AI</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Identity</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google Workspace</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Checks</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-span-1">
+                            <h3 class="font-semibold text-blue-500">Growth and monetization</h3>
+                            <ul>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google Play</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google AdMob</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google Ads</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Chrome Extension</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Google Search Center</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="text-gray-600 hover:text-gray-900 hover:border-b-2 hover:border-gray-900">Solutions</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 hover:border-b-2 hover:border-gray-900">Events</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 hover:border-b-2 hover:border-gray-900">Learn</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 hover:border-b-2 hover:border-gray-900">More</a>
+        </div>
+    </div>
+    <div class="md:hidden">
+        <button @click="open = !open" class="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="hidden md:flex items-center space-x-4">
+        <img src="images/search.png" alt="Search Image" class="w-5 h-5">
+        <input type="text" placeholder="Search" class="text-center border border-gray-500 rounded-md bg-gray-300 px-2 py-1">
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 border border-gray-500 rounded-md">
+                English
+            </button>
+            <ul x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-md z-20" x-cloak>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">English</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Spanish</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">French</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">German</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div :class="{'block': open, 'hidden': !open}" class="md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Products</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Solutions</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Events</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Learn</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">More</a>
+    </div>
+    <div class="flex items-center px-5 py-3 space-x-4">
+        <img src="images/search.png" alt="Search Image" class="w-5 h-5">
+        <input type="text" placeholder="Search" class="text-center border border-gray-500 rounded-md bg-gray-300 px-2 py-1">
+    </div>
+    <div class="flex items-center px-5 py-3 space-x-4">
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 border border-gray-500 rounded-md">
+                English
+            </button>
+            <ul x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-md z-20" x-cloak>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">English</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Spanish</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">French</a></li>
+                <li><a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">German</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+ 
+<div class="bg-blue-600 text-white text-center py-6">
+  Build with Gemini, our largest and most capable AI model.<b class="to-blue-900"><u> <a href="#api">Get an API key.</a></u></b>
+</div>
+
+<div class="text-black px-4 md:px-20 py-11 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+  <h1 class="text-4xl md:text-6xl font-bold">
+      Rewatch<br/>Google I/O<br/>2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </h1>
+  <img src="images/side.PNG" alt="side" class="w-full md:w-auto md:h-auto md:px-25" style="width: 300px; height: auto;">
+</div>
+
+<p class="text-black px-4 md:px-20 py-0 md:font-semibold text-lg md:text-xl">
+  Rewind and relive Google I/O 2024.<br/> Keynotes and sessions are now available on-demand.
+</p>
+
+<div class="px-4 md:px-20">
+  <button class="bg-blue-500 hover:bg-gray-500 text-white font-medium my-5 py-2 px-3 rounded-full">
+      <a href="https://io.google/2024/?utm_source=devsite-hpp&utm_medium=embedded_marketing&utm_campaign=dgc-io-24&utm_content=">Watch on-demand</a>
+  </button>
+</div>  
+
+
+<!--zyada cards-->
+
+<div class="bg-white">
+  <h2 class="text-center font-bold my-2 bg-white text-2xl md:text-4xl">Start Building Today</h2>
+  <div class="flex flex-wrap justify-center">
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/play.jpeg" alt="Google Play Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="https://developer.android.com/distribute">Google Play</a></h2>
+          <p class="text-gray-600">Grow your business, improve app quality, engage your audience, and earn revenue.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/firebase.PNG" alt="Firebase Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="https://firebase.google.com/">Firebase</a></h2>
+          <p class="text-gray-600">An app development platform that helps you build and grow apps and games users love.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/keras.png" alt="Keras Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="https://keras.io/">Keras</a></h2>
+          <p class="text-gray-600">Seamless deep learning across TensorFlow, JAX, and PyTorch.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/tensor.png" alt="TensorFlow Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="https://www.tensorflow.org/">TensorFlow</a></h2>
+          <p class="text-gray-600">An end-to-end platform that makes it easy to build and deploy ML models in any environment.</p>
+      </div>
+  </div>
+</div>
+
+<div class="bg-white">
+  <div class="flex flex-wrap justify-center">
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/android-logo.svg" alt="Android Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#android">Android</a></h2>
+          <p class="text-gray-600">Modern tools to help you build experiences that people love across every Android device.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/cloud.png" alt="Cloud Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#cloud">Cloud</a></h2>
+          <p class="text-gray-600">New customers get $300 in free credits to deploy a dynamic website, launch a VM, build a three-tier web app, and more.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/ai.png" alt="Google AI Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="Google AI">Google AI</a></h2>
+          <p class="text-gray-600">Build generative AI applications quickly with Gemini in Google AI Studio.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/chrome.webp" alt="Chrome Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#chrome">Chrome</a></h2>
+          <p class="text-gray-600">Modern tools and features that help you build high-quality web experiences.</p>
+      </div>
+  </div>
+</div>
+
+<div class="bg-white">
+  <div class="flex flex-wrap justify-center">
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/F.jpg" alt="Flutter Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#Flutter">Flutter</a></h2>
+          <p class="text-gray-600">Build, test, and deploy beautiful web, mobile, desktop and embedded apps from one codebase.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/AD.jpg" alt="Google Ads Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#GoogleAds">Google Ads</a></h2>
+          <p class="text-gray-600">Promote your website, products, and app to the right users with Google Ads.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/K.webp" alt="Kaggle Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#Kaggle">Kaggle</a></h2>
+          <p class="text-gray-600">A platform to share machine learning data sets, explore and build models, and compete in competitions.</p>
+      </div>
+      <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-center max-w-xs flex-1 m-4">
+          <img src="images/A.jpg" alt="Angular Logo" class="mx-auto mb-4 w-20 h-20">
+          <h2 class="text-xl font-semibold mb-2"><a href="#angular">Angular</a></h2>
+          <p class="text-gray-600">The web development framework for building the future.</p>
+      </div>
+  </div>
+</div>
+
+        <div class="flex justify-center bg-white">
+              <button class="bg-blue-500 hover:bg-gray-500 text-white font-medium py-2 px-3 rounded-md relative" >View all developer products</button>            
+              <br/>   
+        </div>
+        <div class="flex justify-center bg-white">
+            <h4 class="text-5xl font-bold" style="margin-top: 120px;">What are you developing for?</h4>
+        </div>
+        <div class="flex justify-center bg-white">
+            <p class="text-2xl text-black my-8">Select your development focus to find helpful solutions and resources</p>
+        </div>     
+        
+            <!--Long cards-->
+
+    <div class="bg-white flex-wrap flex justify-center">
+        <div class="max-w-4xl p-6 bg-white rounded-lg shadow-md border border-gray-200 mx-8">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h2 class="text-2xl font-bold mb-2"><a href="#Mobile">Mobile</a></h2>
+                <p class="text-gray-700">Develop for a range of audiences and form factors.</p>
+              </div>
+              <img src="images/Capture.PNG" alt="Illustration" class="w-24 h-24">
+            </div>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Get started</button>
+        </div>
+
+        <div class="max-w-4xl p-6 bg-white rounded-lg shadow-md border border-gray-200 ">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h2 class="text-2xl font-bold mb-2"><a href="#web">Web</a></h2>
+                <p class="text-gray-700">Create fast, secure sites and apps for the open web.</p>
+              </div>
+              <img src="images/Capture.PNG" alt="Illustration" class="w-24 h-24">
+            </div>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Get started</button>
+        </div>
+    </div>
+
+    <div class="bg-white flex-wrap flex justify-center py-7">
+        <div class="max-w-4xl p-6 bg-white rounded-lg shadow-md border border-gray-200 mx-8">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h2 class="text-2xl font-bold mb-2"><a href="#AI">AI</a></h2>
+                <p class="text-gray-700 ">Develop for a range of audiences and form factors</p>
+              </div>
+              <img src="images/Capture.PNG" alt="Illustration" class="w-24 h-24">
+            </div>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Get started</button>
+        </div>
+
+        <div class="max-w-4xl p-6 bg-white rounded-lg shadow-md border border-gray-200 ">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h2 class="text-2xl font-bold mb-2"><a href="#Cloud">Cloud</a></h2>
+                <p class="text-gray-700"> Simplify and scale end-to-end development </p>
+              </div>
+              <img src="images/Capture.PNG" alt="Illustration" class="w-24 h-24">
+            </div>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Get started</button>
+        </div>
+    </div>
+
+    <!--trending news se aage-->
+    <div class="justify-start font-semibold px-4 py-6 bg-white">
+        <h1 class="text-5xl">Trending news</h1>
+    </div>
+    <div class="bg-white py-6">
+    <div class="flex flex-wrap justify-center gap-4">
+        <!-- Card 1 -->
+        <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+          <img src="images/gem1.PNG" alt="Gemini 1.5" class="w-full">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Gemini 1.5 Pro and 1.5 Flash are now generally available</h2>
+            <p class="text-gray-700 mb-4">Increased rate limits for Gemini 1.5 Flash, 1.5 Flash tuning support (coming soon), JSON schema for model response, and more! Get started in Google AI Studio.</p>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Learn more</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+          <img src="images/Gem2.PNG" alt="Gemini 1.5" class="w-full">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Gemini in Android Studio</h2>
+            <p class="text-gray-700 mb-4">Designed to streamline development and enhance app quality, Gemini in Android Studio is now available in Stable, bringing AI-powered coding assistance to 200+ countries and territories.
+            </p>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Learn more</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+          <img src="images/gem3.PNG" alt="Gemini 1.5" class="w-full">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Start building with Project IDX today</h2>
+            <p class="text-gray-700 mb-4">Experience a streamlined development environment for full-stack, multi-platform, and AI-powered apps. Now open to everyone, no waitlist.</p>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Learn more</button>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    <!--jf wala part-->
+    <div class="py-11 flex flex-col md:flex-row">
+      <!-- Image Section -->
+      <img src="images/JFs.PNG" alt="Android Studio Jellyfish" class="w-full md:w-1/2">
+      <!-- Content Section -->
+      <div class="p-6 w-full md:w-1/2">
+          <h3 class="text-sm text-gray-500 uppercase">What's New in Android</h3>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Android Studio Jellyfish is now stable</h2>
+          <p class="text-gray-700 mb-6">Android Studio Jellyfish is here! Dive into cutting-edge AI features like Gemini in Android Studio and seamless services integrations like Android Device Streaming.</p>
+          <button class="px-4 py-2 my-16 bg-blue-500 text-white rounded-lg">Download now</button>
+      </div>
+  </div>
+  
+
+    <!--dobara 3 cards-->
+    <div class="bg-blue-300 py-8">
+        <div class="flex flex-wrap justify-center gap-4">
+            <!-- Card 1 -->
+            <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden h-86">
+              <img src="images/c1.PNG" alt="Gemini 1.5" class="w-full">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-blue-600 mb-2">Find an event</h2>
+                <p class="text-gray-700 mb-4">Grow your knowledge through online and in-person developer events.</p>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">View events</button>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <img src="images/c2.PNG" alt="Gemini 1.5" class="w-full">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-blue-600 mb-2">Improve technical skills</h2>
+                <p class="text-gray-700 mb-4">Keep up with Google technology. Sharpen skills and master new ones.</p>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Start learning</button>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="max-w-sm bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <img src="images/c3.PNG" alt="Gemini 1.5" class="w-full">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-blue-600 mb-2">Join a community</h2>
+                <p class="text-gray-700 mb-4">Meet a diverse network, no matter where you are on your developer journey.</p>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Explore communities</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!--last 4 cards-->
+    <div class="bg-white py-5">
+        <h2 class="text-center md:font-bold my-2 bg-white py-5 justify-left" style="font-size: 40px;"> Follow Google for Developers</h2>
+        <div class="flex flex-wrap ">
+          <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-left max-w-xs flex-1">
+            <img src="images/Youtube_logo.png" alt="Google Play Logo" class="justify-start mb-4 w-30 h-20">
+            <h2 class="text-xl font-semibold mb-2"><a href="#youtube">Youtube</a></h2>
+            <p class="text-gray-600">Subscribe to join a community of creative developers and learn the latest in Google technology.</p>
+          </div>
+          <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-left max-w-xs flex-1">
+            <img src="images/ig.jpeg" alt="Firebase Logo" class="justify-start mb-4 w-20 h-20">
+            <h2 class="text-xl font-semibold mb-2"><a href="#Instagram">Instagram</a></h2>
+            <p class="text-gray-600">Follow and discover developer resources, community events, and inspirational stories.</p>
+          </div>
+          <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-left max-w-xs flex-1">
+            <img src="images/linkedin-logo-linkedin-icon-transparent-free-png.webp" alt=" Logo" class="justify-start mb-4 w-20 h-20">
+            <h2 class="text-xl font-semibold mb-2"><a href="#linkedIn">LinkedIn</a></h2>
+            <p class="text-gray-600">Join a community of creative developers and learn how to use the latest in technology.</p>
+          </div>
+          <div class="mx-2 bg-white p-6 border-gray-200 rounded-lg border-2 text-left max-w-xs flex-1">
+            <img src="images/X" alt="Google Play Logo" class="justify-start mb-4 w-20 h-20">
+            <h2 class="text-xl font-semibold mb-2"><a href="#X">X</a></h2>
+            <p class="text-gray-600">Join the conversation to discover the latest developer tools, resources, events, and announcements.</p>
+          </div>
+        </div>
+    </div>
+    
+
+
+
+    <div class="bg-gray-100">
+
+      <footer class="bg-white border-t border-gray-200 py-6">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-6">
+            <!-- Column 1 -->
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Connect</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Blog</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Instagram</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">LinkedIn</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">X (Twitter)</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">YouTube</a></li>
+              </ul>
+            </div>
+            <!-- Column 2 -->
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Programs</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Women Techmakers</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Developer Groups</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Developer Experts</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Accelerators</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Developer Student Clubs</a></li>
+              </ul>
+            </div>
+            <!-- Column 3 -->
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Developer consoles</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google API Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Cloud Platform Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Play Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Firebase Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Actions on Google Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Cast SDK Developer Console</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Chrome Web Store Dashboard</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-lg font-semibold text-gray-700 hover:text-blue-600">
+                        <img src="images/logo.png" alt="Google for Developers" class="h-8 inline-block mr-2">
+                    </a>
+                </div>
+                <div>
+                    <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">Android</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">Chrome</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">Firebase</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">Google Cloud Platform</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">All products</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+      </footer>
+    
+    </div>
+    
+    
+ </body>
+</html>
